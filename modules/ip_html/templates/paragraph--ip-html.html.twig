@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * IP HTML paragraph bundle.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<section>
+  {{ content.field_ip_html_text }}
+
+  {{ content|without('field_ip_html_text') }}
+</section>

@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * IP Cards Group paragraph bundle.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<section>
+	<div class="silc-grid">
+		{{ content.field_ip_cg_item }}
+	</div>
+
+	{{ content|without('field_ip_cg_item', 'field_ip_cg_columns', 'field_ip_cg_type') }}
+</section>

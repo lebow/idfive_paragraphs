@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * IP Views Embed paragraph bundle.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<section>
+  {% if content.field_ip_ve_title[0] %}
+    <h2>{{ content.field_ip_ve_title }}</h2>
+  {% endif %}
+
+  {{ content.field_ip_ve_view }}
+
+  {{ content|without('field_ip_ve_title', 'field_ip_ve_view') }}
+</section>

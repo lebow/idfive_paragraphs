@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * IP Table paragraph bundle.
+ *
+ * @ingroup themeable
+ */
+#}
+
+<section>
+  {% if content.field_ip_tb_title[0] %}
+    <h2>{{ content.field_ip_tb_title }}</h2>
+  {% endif %}
+
+  {{ content.field_ip_tb_table }}
+
+  {{ content|without('field_ip_tb_title', 'field_ip_tb_table') }}
+</section>
