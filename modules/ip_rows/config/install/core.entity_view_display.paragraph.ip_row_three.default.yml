@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ip_row_three.field_ip_col_1
+    - field.field.paragraph.ip_row_three.field_ip_col_2
+    - field.field.paragraph.ip_row_three.field_ip_col_3
+    - field.field.paragraph.ip_row_three.field_ip_col_breakpoint
+    - paragraphs.paragraphs_type.ip_row_three
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.ip_row_three.default
+targetEntityType: paragraph
+bundle: ip_row_three
+mode: default
+content:
+  field_ip_col_1:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_ip_col_2:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_ip_col_3:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_ip_col_breakpoint:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden: {  }

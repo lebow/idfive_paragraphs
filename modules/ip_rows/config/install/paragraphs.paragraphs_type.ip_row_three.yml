@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ip_row_three
+label: '3 Column Row'
+icon_uuid: null
+description: 'Row with three columns.'
+behavior_plugins: {  }

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ip_row_two
+label: '2 Column Row'
+icon_uuid: null
+description: 'Row with two columns.'
+behavior_plugins: {  }

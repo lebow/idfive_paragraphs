@@ -1,0 +1,33 @@
+{#
+/**
+ * @file
+ * IP One Column Row paragraph bundle.
+ *
+ * @ingroup themeable
+ */
+#}
+
+{% set classes = [
+  'section', 'row', 'idfive_paragraph', 'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class
+] %}
+{% block paragraph %}
+  <section{{ attributes.addClass(classes) }}>
+        {% block content %}
+
+              <div class="compartment">
+                <div class="silc-grid">
+                  <div class="silc-grid__col silc-grid__col--12">
+                    {{ content.field_ip_col_1 }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Render without, so quickedit/etc works -->
+              {{ content|without('field_ip_col_1') }}
+
+        {% endblock %}
+
+  </section>
+{% endblock paragraph %}

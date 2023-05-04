@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ip_col_breakpoint
+    - paragraphs.paragraphs_type.ip_row_four
+  module:
+    - options
+id: paragraph.ip_row_four.field_ip_col_breakpoint
+field_name: field_ip_col_breakpoint
+entity_type: paragraph
+bundle: ip_row_four
+label: 'Column Breakpoint'
+description: 'Please choose the breakpoint at which these columns should appear.'
+required: false
+translatable: true
+default_value:
+  -
+    value: '800'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

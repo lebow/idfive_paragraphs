@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ip_row_two.field_ip_col_1
+    - field.field.paragraph.ip_row_two.field_ip_col_2
+    - field.field.paragraph.ip_row_two.field_ip_col_breakpoint
+    - field.field.paragraph.ip_row_two.field_ip_col_ratio_2_col
+    - paragraphs.paragraphs_type.ip_row_two
+  module:
+    - paragraphs
+id: paragraph.ip_row_two.default
+targetEntityType: paragraph
+bundle: ip_row_two
+mode: default
+content:
+  field_ip_col_1:
+    weight: 2
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_ip_col_2:
+    type: entity_reference_paragraphs
+    weight: 3
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+  field_ip_col_breakpoint:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_ip_col_ratio_2_col:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

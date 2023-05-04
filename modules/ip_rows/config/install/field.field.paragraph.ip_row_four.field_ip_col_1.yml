@@ -1,0 +1,64 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ip_col_1
+    - paragraphs.paragraphs_type.ip_accordion_item
+    - paragraphs.paragraphs_type.ip_row_four
+    - paragraphs.paragraphs_type.ip_row_one
+    - paragraphs.paragraphs_type.ip_row_three
+    - paragraphs.paragraphs_type.ip_row_two
+  module:
+    - entity_reference_revisions
+id: paragraph.ip_row_four.field_ip_col_1
+field_name: field_ip_col_1
+entity_type: paragraph
+bundle: ip_row_four
+label: 'Column 1'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles:
+      ip_accordion_item: ip_accordion_item
+      ip_row_four: ip_row_four
+      ip_row_one: ip_row_one
+      ip_row_three: ip_row_three
+      ip_row_two: ip_row_two
+    target_bundles_drag_drop:
+      ip_accordion:
+        weight: 11
+        enabled: false
+      ip_accordion_item:
+        enabled: true
+        weight: 12
+      ip_card:
+        weight: 13
+        enabled: false
+      ip_row_four:
+        enabled: true
+        weight: 14
+      ip_row_one:
+        enabled: true
+        weight: 15
+      ip_row_three:
+        enabled: true
+        weight: 16
+      ip_row_two:
+        enabled: true
+        weight: 17
+      ip_table:
+        weight: 18
+        enabled: false
+      ip_views_embed:
+        weight: 19
+        enabled: false
+      ip_webform_embed:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions
