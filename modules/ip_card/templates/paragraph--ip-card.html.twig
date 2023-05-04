@@ -17,10 +17,12 @@
 			<div class="card__body">
 				{{ content.field_ip_cd_text }}
 			</div>
-			{% for key, item in content.field_ip_cd_link if key|first != '#' %}
-				<a href="{{ content.field_ip_cd_link[key]['#url'] }}" class="card__cta button" {% if content.field_ip_cd_link[key]['#options'].attributes.target %} target="{{ content.field_ip_cd_link[key]['#options'].attributes.target }}" {% endif %}>
-					{{ content.field_ip_cd_link[key]['#title'] }}
-				</a>
+			{% for key, item in content.field_ip_cd_link %}
+				{% if key|first != '#' %}
+					<a href="{{ content.field_ip_cd_link[key]['#url'] }}" class="card__cta button" {% if content.field_ip_cd_link[key]['#options'].attributes.target %} target="{{ content.field_ip_cd_link[key]['#options'].attributes.target }}" {% endif %}>
+						{{ content.field_ip_cd_link[key]['#title'] }}
+					</a>
+				{% endif %}
 			{% endfor %}
 		</div>
 	</div>
