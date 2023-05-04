@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ip_row_one.field_ip_col_1
+    - paragraphs.paragraphs_type.ip_row_one
+  module:
+    - paragraphs
+id: paragraph.ip_row_one.default
+targetEntityType: paragraph
+bundle: ip_row_one
+mode: default
+content:
+  field_ip_col_1:
+    type: entity_reference_paragraphs
+    weight: 0
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

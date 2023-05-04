@@ -1,0 +1,140 @@
+<?php
+
+/**
+ * @file
+ * Ip_accordion module file.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ *
+ * @inheritdoc
+ */
+function ip_rows_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.ip_rows':
+      $text = file_get_contents(dirname(__FILE__) . "/README.md");
+      if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+        return '<pre>' . $text . '</pre>';
+      }
+      else {
+        // Use the Markdown filter to render the README.
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        return $filter->process($text, 'en');
+      }
+  }
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * Lets us define our paragraphs templates in this module.
+ */
+function ip_rows_theme($existing, $type, $theme, $path) {
+  return [
+    'paragraph__ip_row_one' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__ip_row_two' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__ip_row_three' => [
+      'base hook' => 'paragraph',
+    ],
+    'paragraph__ip_row_four' => [
+      'base hook' => 'paragraph',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function ip_rows_preprocess_paragraph__ip_row_two(&$variables) {
+  $variables['ip_col_bp'] = _ip_rows_get_bp($variables);
+  $variables['ip_col_split'] = _ip_rows_get_split($variables);
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function ip_rows_preprocess_paragraph__ip_row_three(&$variables) {
+  $variables['ip_col_bp'] = _ip_rows_get_bp($variables);
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function ip_rows_preprocess_paragraph__ip_row_four(&$variables) {
+  $variables['ip_col_bp'] = _ip_rows_get_bp($variables);
+}
+
+/**
+ * CUSTOM FUNCTIONS.
+ */
+
+/**
+ * Return column breakpoint, set default if needed.
+ */
+function _ip_rows_get_bp($variables) {
+  $bp = $variables['elements']['#paragraph']->field_ip_col_breakpoint->value;
+  if ($bp) {
+    return $bp;
+  }
+  return '800';
+}
+
+/**
+ * Return the column split ratio for 2 col.
+ */
+function _ip_rows_get_split($variables) {
+  $cols = [];
+  $cols['left'] = '6';
+  $cols['right'] = '6';
+  $split = $variables['elements']['#paragraph']->field_ip_col_ratio_2_col->value;
+  if ($split) {
+    if ($split == '2/10') {
+      $cols['left'] = '2';
+      $cols['right'] = '10';
+    }
+    elseif ($split == '3/9') {
+      $cols['left'] = '3';
+      $cols['right'] = '9';
+    }
+    elseif ($split == '4/8') {
+      $cols['left'] = '4';
+      $cols['right'] = '8';
+    }
+    elseif ($split == '5/7') {
+      $cols['left'] = '5';
+      $cols['right'] = '7';
+    }
+    elseif ($split == '6/6') {
+      $cols['left'] = '6';
+      $cols['right'] = '6';
+    }
+    elseif ($split == '7/5') {
+      $cols['left'] = '7';
+      $cols['right'] = '5';
+    }
+    elseif ($split == '8/4') {
+      $cols['left'] = '8';
+      $cols['right'] = '4';
+    }
+    elseif ($split == '9/3') {
+      $cols['left'] = '9';
+      $cols['right'] = '3';
+    }
+    elseif ($split == '10/2') {
+      $cols['left'] = '10';
+      $cols['right'] = '2';
+    }
+  }
+  return $cols;
+}

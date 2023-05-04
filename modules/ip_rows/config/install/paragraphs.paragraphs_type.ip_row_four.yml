@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ip_row_four
+label: '4 Column Row'
+icon_uuid: null
+description: 'Row with four columns.'
+behavior_plugins: {  }

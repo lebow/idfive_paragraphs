@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ip_col_ratio_2_col
+    - paragraphs.paragraphs_type.ip_row_two
+  module:
+    - options
+id: paragraph.ip_row_two.field_ip_col_ratio_2_col
+field_name: field_ip_col_ratio_2_col
+entity_type: paragraph
+bundle: ip_row_two
+label: 'Column Ratio'
+description: 'Choose the split ratio of the columns. This is based on a 12 part grid.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 6/6
+default_value_callback: ''
+settings: {  }
+field_type: list_string
