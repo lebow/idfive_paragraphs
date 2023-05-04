@@ -2,7 +2,7 @@ name: 'idfive Sidebar Menu Block'
 type: module
 description: 'Custom block menu for ICL specific sidebar markup/UX.'
 core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 version: VERSION
 package: 'idfive'
 
