@@ -4,20 +4,20 @@
  * Extends defailt media entity browser for custom view
  */
 
-(function ($) {
-  /**
-   * Attaches the behavior of the media entity browser view.
-   */
-  Drupal.behaviors.mediaEntityBrowserView = {
+/**
+ * Attaches the behavior of the media entity browser view.
+ */
+Drupal.behaviors.mediaEntityBrowserView = {
     attach(context, settings) {
-      $(".views-row", context)
-        .once()
-        .click(function () {
-          const $row = $(this);
-          const $input = $row.find(".views-field-entity-browser-select input");
-          $input.prop("checked", !$input.prop("checked"));
-          $row[$input.prop("checked") ? "addClass" : "removeClass"]("checked");
-        });
+        once('idfive-paragraphs-views-click', '.views-row', context)
+            .forEach(function(el){
+                el.addEventListener('click', function () {
+                    const row = this;
+                    const input = row.querySelector('.views-field-entity-browser-select input');
+
+                    input.checked = !input.checked;
+                    row.classList.toggle('checked');
+                })
+            });
     }
-  };
-})(jQuery, Drupal);
+};
